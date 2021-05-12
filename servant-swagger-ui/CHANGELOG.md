@@ -1,3 +1,19 @@
+- 0.3.6.4.5.0
+    - Generalize to support arbitrary type instead of hardcoded `Value`.
+
+      `SwaggerSchemaUI` now needs one more parameter which typically is
+      either `Swagger` or `OpenApi`.
+
+      To migrate from older version, alter your API type from
+      `SwaggerSchemaUI "swagger-ui" "swagger.json"`
+      to
+      `SwaggerSchemaUI "swagger-ui" "swagger.json" Swagger`
+
+      Or in case of the more generic variant, old
+      `SwaggerSchemaUI' "foo-ui" ("foo" :> "swagger.json" :> Get '[JSON] Value)`
+      becomes
+      `SwaggerSchemaUI' "foo-ui" ("foo" :> "swagger.json" :> Get '[JSON] Swagger)`
+
 - 0.3.5.3.47.1
     - Update to `swagger-ui-3.47.1`
     - Generalize `swaggerSchemaUIServer` to support arbitrary `Value` instead of hardcoded `Swagger`
